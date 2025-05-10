@@ -27,10 +27,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
-          <h1 className="text-3xl font-bold text-center">
-            marginfi / kamino rates
-          </h1>
+        <div className="mx-auto max-w-7xl space-y-8 px-4 py-8">
+          <h1 className="text-center text-3xl font-bold">Rates Comparison</h1>
           {children}
         </div>
       </body>
