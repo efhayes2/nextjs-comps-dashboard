@@ -11,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { AddressActions } from '@/components/ui/address-action'
 
 type RatesTableProps = {
   rates: BankRate[]
@@ -52,7 +53,12 @@ export const RatesTable = ({ rates }: RatesTableProps) => {
       <TableBody>
         {rates.map((rate) => (
           <TableRow key={rate.mint} className="even:bg-muted/50">
-            <TableCell>{shortenAddress(rate.mint)}</TableCell>
+            <TableCell>
+              <AddressActions
+                address={rate.mint}
+                shortAddress={shortenAddress(rate.mint)}
+              />
+            </TableCell>
             <TableCell>
               <div className="flex items-center gap-2">
                 <Image
