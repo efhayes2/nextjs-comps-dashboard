@@ -52,7 +52,10 @@ export const RatesTable = ({ rates }: RatesTableProps) => {
       </TableHeader>
       <TableBody>
         {rates.map((rate) => (
-          <TableRow key={rate.mint} className="even:bg-muted/50">
+          <TableRow
+            key={rate.mint}
+            className="even:bg-muted/50 hover:bg-transparent even:hover:bg-muted/50"
+          >
             <TableCell>
               <AddressActions
                 address={rate.mint}
