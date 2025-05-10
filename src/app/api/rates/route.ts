@@ -1,5 +1,5 @@
 import { Connection, PublicKey } from '@solana/web3.js'
-import { loadBankMetadatas, NodeWallet, aprToApy } from '@mrgnlabs/mrgn-common'
+import { loadBankMetadatas, aprToApy, Wallet } from '@mrgnlabs/mrgn-common'
 import { MarginfiClient, getConfig } from '@mrgnlabs/marginfi-client-v2'
 import { KaminoMarket } from '@kamino-finance/klend-sdk'
 
@@ -10,7 +10,7 @@ export async function GET() {
 
   const mfiClient = await MarginfiClient.fetch(
     getConfig('production'),
-    NodeWallet.local(),
+    {} as Wallet,
     connection,
     {
       preloadedBankAddresses: Object.keys(bankMetadatas).map(
