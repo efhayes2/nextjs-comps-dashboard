@@ -22,9 +22,9 @@ export const RatesTable = ({ rates }: RatesTableProps) => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Mint</TableHead>
-          <TableHead>Symbol</TableHead>
-          <TableHead>
+          <TableHead className="w-1/4">Mint</TableHead>
+          <TableHead className="w-1/4">Symbol</TableHead>
+          <TableHead className="w-1/4">
             <div className="flex items-center gap-1.5">
               <Image
                 src="/marginfi.png"
@@ -36,7 +36,7 @@ export const RatesTable = ({ rates }: RatesTableProps) => {
               Marginfi
             </div>
           </TableHead>
-          <TableHead>
+          <TableHead className="w-1/4">
             <div className="flex items-center gap-1.5">
               <Image
                 src="/kamino.png"
