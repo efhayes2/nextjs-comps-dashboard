@@ -41,15 +41,13 @@ export async function GET() {
       }
 
       const mfiInterestRates = mfiBank.computeInterestRates()
-      const mfiLendingRate = mfiInterestRates?.lendingRate.toNumber()
-      const mfiBorrowingRate = mfiInterestRates?.borrowingRate.toNumber()
-      const mfiLendingApy = aprToApy(mfiLendingRate)
-      const mfiBorrowingApy = aprToApy(mfiBorrowingRate)
+      const mfiLendingRateBase = mfiInterestRates?.lendingRate.toNumber()
+      const mfiBorrowingRateBase = mfiInterestRates?.borrowingRate.toNumber()
+      const mfiLendingRate = aprToApy(mfiLendingRateBase)
+      const mfiBorrowingRate = aprToApy(mfiBorrowingRateBase)
 
       const kaminoLendingRate = kaminoReserve?.totalSupplyAPY(currentSlot)
       const kaminoBorrowingRate = kaminoReserve?.totalBorrowAPY(currentSlot)
-      const kaminoLendingApy = aprToApy(kaminoLendingRate)
-      const kaminoBorrowingApy = aprToApy(kaminoBorrowingRate)
 
       return {
         mint: metadata.tokenAddress,
@@ -58,14 +56,10 @@ export async function GET() {
           mfi: {
             lendingRate: mfiLendingRate,
             borrowingRate: mfiBorrowingRate,
-            lendingApy: mfiLendingApy,
-            borrowingApy: mfiBorrowingApy,
           },
           kamino: {
             lendingRate: kaminoLendingRate,
             borrowingRate: kaminoBorrowingRate,
-            lendingApy: kaminoLendingApy,
-            borrowingApy: kaminoBorrowingApy,
           },
         },
       }

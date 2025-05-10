@@ -23,10 +23,30 @@ export const RatesTable = ({ rates }: RatesTableProps) => {
         <TableRow>
           <TableHead>Mint</TableHead>
           <TableHead>Symbol</TableHead>
-          <TableHead>Lending Rate</TableHead>
-          <TableHead>Borrowing Rate</TableHead>
-          <TableHead>Lending APY</TableHead>
-          <TableHead>Borrowing APY</TableHead>
+          <TableHead>
+            <div className="flex items-center gap-1.5">
+              <Image
+                src="/marginfi.png"
+                alt="Marginfi"
+                width={20}
+                height={20}
+                className="rounded-full"
+              />
+              Marginfi
+            </div>
+          </TableHead>
+          <TableHead>
+            <div className="flex items-center gap-1.5">
+              <Image
+                src="/kamino.png"
+                alt="Kamino"
+                width={20}
+                height={20}
+                className="rounded-full"
+              />
+              Kamino
+            </div>
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -46,100 +66,20 @@ export const RatesTable = ({ rates }: RatesTableProps) => {
               </div>
             </TableCell>
             <TableCell>
-              <div className="space-y-2 text-green-600">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/marginfi.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.mfi.lendingRate)}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/kamino.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.kamino.lendingRate)}
-                </div>
-              </div>
+              <p className="text-green-600">
+                {percentFormatter.format(rate.rates.mfi.lendingRate)}
+              </p>
+              <p className="text-yellow-600">
+                {percentFormatter.format(rate.rates.mfi.borrowingRate)}
+              </p>
             </TableCell>
             <TableCell>
-              <div className="space-y-2 text-yellow-600">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/marginfi.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.mfi.borrowingRate)}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/kamino.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.kamino.borrowingRate)}
-                </div>
-              </div>
-            </TableCell>
-            <TableCell>
-              <div className="space-y-2 text-green-600">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/marginfi.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.mfi.lendingApy)}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/kamino.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.kamino.lendingApy)}
-                </div>
-              </div>
-            </TableCell>
-            <TableCell>
-              <div className="space-y-2 text-yellow-600">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/marginfi.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.mfi.borrowingApy)}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/kamino.png"
-                    alt={rate.symbol}
-                    width={20}
-                    height={20}
-                    className="rounded-full"
-                  />
-                  {percentFormatter.format(rate.rates.kamino.borrowingApy)}
-                </div>
-              </div>
+              <p className="text-green-600">
+                {percentFormatter.format(rate.rates.kamino.lendingRate)}
+              </p>
+              <p className="text-yellow-600">
+                {percentFormatter.format(rate.rates.kamino.borrowingRate)}
+              </p>
             </TableCell>
           </TableRow>
         ))}

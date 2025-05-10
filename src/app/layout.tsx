@@ -27,7 +27,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
+          <h1 className="text-3xl font-bold text-center">
+            marginfi / kamino rates
+          </h1>
+          {children}
+        </div>
       </body>
     </html>
   )
