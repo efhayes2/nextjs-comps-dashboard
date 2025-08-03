@@ -17,7 +17,7 @@ export async function GET() {
   const currentSlot = await connection.getSlot()
 
   const bankRates = Object.entries(bankData)
-    .map(([key, metadata]) => {
+    .map(([, metadata]) => {
 //      const mfiBank = mfiClient.getBankByPk(new PublicKey(key))
 
       const kaminoReserve = kaminoMarket?.getReserveByMint(
