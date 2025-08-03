@@ -1,6 +1,6 @@
 import { Connection, PublicKey } from '@solana/web3.js'
 import { KaminoMarket } from '@kamino-finance/klend-sdk'
-import { getTokenMetadataMap } from "../../../lib/utils";
+import { getTokenMetadataMap } from "@/lib/utils";
 
 export async function GET() {
 
